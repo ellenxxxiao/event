@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "bcab259b-7ce8-483a-b1fa-ad7f12bcc186",
+		"name": "eventCRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findById",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "abc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/findById/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findById",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addEvent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/deleteById",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEvent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"updatorId\": 6366,\r\n    \"active\": 1,\r\n    \"name\": \"22UPD\",\r\n    \"description\": \"你很好!\",\r\n    \"budget\": 10000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/updateEvent",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateEvent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllEvents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/findAllEvents",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findAllEvents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

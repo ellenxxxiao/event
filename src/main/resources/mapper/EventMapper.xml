@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ellens.event.mapper.EventMapper">
+
+    <!-- 结果映射表 -->
+    <resultMap id="eventMap" type="com.ellens.event.model.Event">
+        <id property="id" column="id"/>
+        <result property="creatorId" column="creator_id"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updatorId" column="updator_id"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="active" column="is_active"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="budget" column="budget"/>
+    </resultMap>
+
+    <!-- 新增一个Event -->
+    <insert id="addEvent" parameterType="com.ellens.event.model.Event" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO event (creator_id, create_time, updator_id, update_time, is_active, name, description, budget)
+        VALUES (#{creatorId}, #{createTime}, #{creatorId}, #{createTime}, #{active}, #{name}, #{description}, #{budget})
+    </insert>
+
+    <!-- 删除指定id的Event -->
+    <delete id="deleteById">
+        DELETE FROM event WHERE id = #{eventId}
+    </delete>
+
+    <!-- 更新一个Event -->
+    <update id="updateEvent">
+        UPDATE event SET updator_id = #{updatorId},
+                         update_time = #{updateTime},
+                         is_active = #{active},
+                         name = #{name},
+                         description = #{description},
+                         budget = #{budget}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 查询指定id的Event -->
+    <select id="findById" parameterType="integer" resultMap="eventMap">
+        SELECT * FROM event WHERE id = #{eventId}
+    </select>
+
+    <!-- 查询所有Event -->
+    <select id="findAllEvents" resultMap="eventMap">
+        SELECT * FROM event
+    </select>
+
+
+
+</mapper>
